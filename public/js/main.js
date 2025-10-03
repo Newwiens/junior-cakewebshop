@@ -3,7 +3,7 @@ async function loadData() {
     console.log("✅ main.js gestart");
     // STAP 1: Probeer data op te halen
     /* ----- Voor Vercel deploy ------*/
-    const response = await fetch("/data/data.json");
+    const response = await fetch('/data/data.json');
     console.log("📡 fetch status:", response.status);
 
     /* --------- Local host ---------- */
