@@ -38,9 +38,15 @@ async function loadData() {
 
       clone.querySelector(".product-card__name").textContent = d.name;
       clone.querySelector(".product-card__category").textContent = d.category;
-      clone.querySelector(
-        ".product-card__price"
-      ).textContent = `€${d.price.toFixed(2)}`;
+
+      //Euro format
+      const euroFormatter = new Intl.NumberFormat("nl-NL", {
+        style: "currency",
+        currency: "EUR",
+      });
+
+      clone.querySelector(".product-card__price").textContent =
+        euroFormatter.format(d.price);
 
       fragment.appendChild(clone);
     });

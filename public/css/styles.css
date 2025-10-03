@@ -2,6 +2,9 @@ body {
   background-color: var(--color-rose100);
 }
 
+/* .product-card {
+  border: 3px solid var(--color-rose50);
+} */
 .product-card__img {
   border-radius: 10px;
 }
