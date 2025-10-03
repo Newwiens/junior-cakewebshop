@@ -2,7 +2,7 @@ async function loadData() {
   try {
     // STAP 1: Probeer data op te halen
     /* ----- Voor Vercel deploy ------*/
-    const response = await fetch("./data/data.json");
+    const response = await fetch("/data/data.json");
 
     /* --------- Local host ---------- */
     //const response = await fetch("public/data/data.json");
