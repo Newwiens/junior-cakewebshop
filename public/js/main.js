@@ -21,7 +21,7 @@ async function loadData() {
     const data = await response.json();
 
     const template = document.querySelector("#product-template");
-    const sectionCard = document.querySelector("#card-container");
+    const sectionCard = document.querySelector("#products");
 
     // DocumentFragment = performanter bij veel elementen
     const fragment = document.createDocumentFragment();
@@ -32,15 +32,15 @@ async function loadData() {
       const clone = template.content.cloneNode(true);
 
       // De vulden in vullen
-      const img = clone.querySelector(".product-img");
+      const img = clone.querySelector(".product-card__img");
       img.src = d.image.desktop;
       img.alt = d.name;
 
-      clone.querySelector(".product-name").textContent = d.name;
-      clone.querySelector(".product-category").textContent = d.category;
-      clone.querySelector(".product-price").textContent = `€${d.price.toFixed(
-        2
-      )}`;
+      clone.querySelector(".product-card__name").textContent = d.name;
+      clone.querySelector(".product-card__category").textContent = d.category;
+      clone.querySelector(
+        ".product-card__price"
+      ).textContent = `€${d.price.toFixed(2)}`;
 
       fragment.appendChild(clone);
     });

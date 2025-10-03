@@ -19,18 +19,31 @@
     <!-- JS -->
     <script type="module" src="/js/main.js" defer></script>
 
-    <title>Document</title>
+    <title>Cake Webshop</title>
   </head>
   <body>
     <template id="product-template">
       <div class="product-card">
-        <img src="" alt="" class="product-img" />
-        <h3 class="product-name"></h3>
-        <p class="product-category"></p>
-        <p class="product-price"></p>
+        <img
+          src=""
+          width="260px"
+          height="auto"
+          alt=""
+          class="product-card__img"
+        />
+        <div class="product-card__info">
+          <p class="product-card__category"></p>
+          <h3 class="product-card__name"></h3>
+          <p class="product-card__price"></p>
+        </div>
       </div>
     </template>
 
-    <section id="card-container"></section>
+    <!-- Layout webshop -->
+    <main class="shop">
+      <h1 class="shop__title">Desserts</h1>
+      <section id="products" class="shop__products"></section>
+      <aside class="shop__cart cart"></aside>
+    </main>
   </body>
 </html>
