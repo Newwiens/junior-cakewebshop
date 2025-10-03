@@ -1,7 +1,9 @@
 async function loadData() {
   try {
     // STAP 1: Probeer data op te halen
-    const response = await fetch("/data/data.json");
+    /* Voor Vercel deploy */
+    // const response = await fetch("public/data/data.json");
+    const response = await fetch("public/data/data.json");
 
     // STAP 2: Check of response OK is
     if (!response.ok) {
@@ -10,6 +12,15 @@ async function loadData() {
 
     // STAP 3: Probeer JSON eruit te halen
     const data = await response.json();
+
+    const ul = document.querySelector("#product-list");
+    ul.innerHTML = "";
+
+    data.forEach((d) => {
+      const li = document.createElement("li"); // Maak <li>
+      li.textContent = d.name; // vul met productnaam
+      ul.appendChild(li); // Voeg toe aan de <ul> lijst
+    });
 
     // STAP 4: Gebruik de data
     console.log("data is ingeladen", data);
