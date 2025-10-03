@@ -1,35 +1,54 @@
 async function loadData() {
   try {
     console.log("✅ main.js gestart");
-    // STAP 1: Probeer data op te halen
-    /* ----- Voor Vercel deploy ------*/
-    const response = await fetch('/data/data.json');
-    console.log("📡 fetch status:", response.status);
+    // STAP 1: DATA OPHALEN
+    /* ----- Voor Vercel deploy & public local server ------*/
+    const response = await fetch("/data/data.json"); // Puur JSON data ophalen met GET-methode en sla de info op response
 
-    /* --------- Local host ---------- */
-    //const response = await fetch("public/data/data.json");
+    /*---------------------
+    - response is een variable naam dat meegeven is bij de fetch-methode
+      - response bevat alles wat de server terugstuurt — niet de data zelf, maar het antwoordobject.
+      - .ok = eigenschappen van zogenemame Response object
+        - geeft een booleans terug (true/false)
+      - .status = HTTP-statuscode (200, 400, 500)
+    */
 
-    // STAP 2: Check of response OK is
     if (!response.ok) {
       throw new Error(`fout met inladen ${response.status}`);
     }
 
-    // STAP 3: Probeer JSON eruit te halen
+    // STAP 2: Probeer JSON eruit te halen
     const data = await response.json();
-    console.log("📦 data ontvangen:", data.length, "items");
 
-    const ul = document.querySelector("#product-list");
-    console.log("🔍 ul gevonden?", !!ul);
-    ul.innerHTML = "";
+    const template = document.querySelector("#product-template");
+    const sectionCard = document.querySelector("#card-container");
 
+    // DocumentFragment = performanter bij veel elementen
+    const fragment = document.createDocumentFragment();
+
+    // STAP 3: Loop door alle producten
     data.forEach((d) => {
-      const li = document.createElement("li"); // Maak <li>
-      li.textContent = d.name; // vul met productnaam
-      ul.appendChild(li); // Voeg toe aan de <ul> lijst
+      //clone het template
+      const clone = template.content.cloneNode(true);
+
+      // De vulden in vullen
+      const img = clone.querySelector(".product-img");
+      img.src = d.image.desktop;
+      img.alt = d.name;
+
+      clone.querySelector(".product-name").textContent = d.name;
+      clone.querySelector(".product-category").textContent = d.category;
+      clone.querySelector(".product-price").textContent = `€${d.price.toFixed(
+        2
+      )}`;
+
+      fragment.appendChild(clone);
     });
 
+    sectionCard.appendChild(fragment);
+
     // STAP 4: Gebruik de data
-    console.log("data is ingeladen", data);
+    console.log("data is ingeladen", data.length, "items");
   } catch (err) {
     // Dit blok wordt uitgevoerd ALS er in try iets misgaat
     console.error("Er is wat mis gegaan met inladen:", err.message);
