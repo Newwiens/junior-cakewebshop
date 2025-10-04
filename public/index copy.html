@@ -1,0 +1,62 @@
+<!-- in index.html -->
+<template id="product-template">
+  <div class="product-card" data-id="">
+    <div class="product-card__media">
+      <img class="product-card__img" src="" alt="" />
+
+      <div class="product-card__add-cart">
+        <button
+          class="add-btn"
+          type="button"
+          data-action="add"
+          aria-label="Add to cart"
+        >
+          <img
+            src="./assets/icons/icon-add-to-cart.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <span>Add to Cart</span>
+        </button>
+
+        <div
+          class="qty-controls hidden"
+          role="group"
+          aria-label="Quantity controls"
+        >
+          <button
+            class="qty-btn"
+            type="button"
+            data-action="dec"
+            aria-label="Decrease"
+          >
+            <img
+              src="./assets/icons/icon-decrement-quantity.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+          <output class="qty-value" aria-live="polite">1</output>
+          <button
+            class="qty-btn"
+            type="button"
+            data-action="inc"
+            aria-label="Increase"
+          >
+            <img
+              src="./assets/icons/icon-increment-quantity.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card__info">
+      <p class="product-card__category"></p>
+      <h3 class="product-card__name"></h3>
+      <p class="product-card__price"></p>
+    </div>
+  </div>
+</template>
