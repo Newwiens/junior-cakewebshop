@@ -93,6 +93,35 @@ body {
   height: auto;
 }
 
+/* Quanty control */
+.qty-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.qty-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-red);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.qty-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: blue;
+  color: var(--color-rose50);
+  font-size: 1em;
+}
+
+/* Cart section */
 .cart {
   position: sticky;
   top: 1rem;
