@@ -76,9 +76,14 @@ body {
 .product-card__add-cart {
   position: absolute;
   left: 50%;
-  bottom: -14px;
+  bottom: -18px; /* pas aan naar wens */
   transform: translateX(-50%);
-  z-index: 1;
+  height: 40px; /* vaste hoogte van de balk */
+  border-radius: 9999px; /* pill-vorm */
+  display: grid;
+  place-items: center;
+  overflow: hidden; /* alles netjes binnen de rand */
+  z-index: 3;
 }
 .add-btn {
   background-color: var(--color-rose50);
@@ -95,9 +100,18 @@ body {
 
 /* Quanty control */
 .qty-controls {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 50%);
+  background: transparent;
   display: flex;
-  justify-content: space-between;
+  gap: 1.8rem;
   align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
 }
 .qty-btn {
   display: flex;
@@ -107,7 +121,8 @@ body {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  border: none;
+  border: 2px solid var(--color-rose50);
+  cursor: pointer;
 }
 
 .qty-value {
@@ -116,9 +131,38 @@ body {
   align-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: blue;
+
   color: var(--color-rose50);
   font-size: 1em;
+}
+
+/* Btn add-cart config for visible and hidden */
+/* hidden qty-controls */
+
+/* Hover with mouse */
+/* De rode laag die het hele kader bedekt */
+.product-card__add-cart::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* full cover */
+  background: var(--color-red);
+  border-radius: inherit;
+  opacity: 0; /* start onzichtbaar */
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none; /* blokkeert geen clicks */
+}
+
+/* Bij hover (of toetsenbord focus op kind) wordt het kader volledig rood */
+.product-card__add-cart:hover::before,
+.product-card__add-cart:focus-within::before {
+  opacity: 1;
+}
+
+.product-card__add-cart:hover .qty-controls,
+.product-card__add-cart:focus-within .qty-controls {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Cart section */

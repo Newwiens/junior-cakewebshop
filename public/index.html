@@ -40,17 +40,7 @@
 
             <!-- Quanty control + and - -->
             <div class="qty-controls">
-              <!-- increment control (+)-->
-              <button
-                class="qty-btn"
-                type="button"
-                data-action="inc"
-                aria-label="Increase"
-              >
-                <img src="./assets/icons/icon-increment-quantity.svg" alt="" />
-              </button>
-              <output class="qty-value" aria-live="polite">1</output>
-              <!-- decrement control (-) -->
+              <!-- increment control (-)-->
               <button
                 class="qty-btn"
                 type="button"
@@ -58,6 +48,19 @@
                 aria-label="Decrease"
               >
                 <img src="./assets/icons/icon-decrement-quantity.svg" alt="" />
+              </button>
+
+              <!-- Output value -->
+              <output class="qty-value" aria-live="polite">1</output>
+
+              <!-- decrement control (+) -->
+              <button
+                class="qty-btn"
+                type="button"
+                data-action="inc"
+                aria-label="Increase"
+              >
+                <img src="./assets/icons/icon-increment-quantity.svg" alt="" />
               </button>
             </div>
           </div>
