@@ -1,5 +1,6 @@
 import { fetchProducts } from "./services/api.js";
 import { renderProductCard } from "./components/RenderProductCard.js";
+import { initQtyControl } from "./components/QtyControl.js";
 
 async function loadData() {
   try {
@@ -10,6 +11,9 @@ async function loadData() {
 
     //2 Render Product card via Component
     renderProductCard(data);
+
+    //3 Render QtyControl
+    initQtyControl();
 
     console.log("data is ingeladen", data.length, "items");
   } catch (err) {
