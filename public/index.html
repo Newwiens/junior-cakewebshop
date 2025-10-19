@@ -23,7 +23,7 @@
   </head>
   <body>
     <template id="product-template">
-      <div class="product-card is-selected">
+      <div class="product-card">
         <div class="product-card__media">
           <img src="" alt="" class="product-card__img" />
 
@@ -51,7 +51,7 @@
               </button>
 
               <!-- Output value -->
-              <output class="qty-value" aria-live="polite"></output>
+              <output class="qty-value" aria-live="polite">0</output>
 
               <!-- decrement control (+) -->
               <button
@@ -77,7 +77,7 @@
     <!-- Layout webshop -->
     <main class="shop">
       <h1 class="shop__title">Desserts</h1>
-      <section id="products" class="shop__products"></section>
+      <section id="products" class="shop__products">0</section>
       <aside class="shop__cart cart"></aside>
     </main>
   </body>

@@ -1,3 +1,4 @@
+/* ========== Basis ========== */
 body {
   background-color: var(--color-rose100);
 }
@@ -11,10 +12,9 @@ body {
 }
 
 .product-card:hover {
-  /* border: 3px solid var(--color-red); */
   box-shadow: -5px -5px 15px rgba(255, 182, 193, 1),
     5px 5px 10px rgba(255, 182, 193, 1);
-  transform: translateY(-5px) scale(1.08); /* subtiele hover-lift */
+  transform: translateY(-5px) scale(1.08);
 }
 
 .product-card__img {
@@ -24,6 +24,7 @@ body {
   width: 100%;
   object-fit: cover;
 }
+
 .product-card__category {
   color: var(--color-rose500);
 }
@@ -34,6 +35,7 @@ body {
   color: var(--color-red);
   font-weight: 600;
 }
+
 .product-card__info {
   display: flex;
   gap: 0.3rem;
@@ -41,6 +43,7 @@ body {
   padding: 2rem 1rem;
 }
 
+/* ========== Layout shop ========== */
 .shop {
   display: grid;
   grid-template-areas:
@@ -50,15 +53,12 @@ body {
   gap: 2rem;
   padding: 5rem;
 }
-
 .shop__title {
   grid-area: title;
 }
-
 .shop__products {
   grid-area: products;
 }
-
 .shop__cart {
   grid-area: cart;
 }
@@ -69,110 +69,144 @@ body {
   gap: 1.5rem;
 }
 
-/* Add Cart control */
+/* ========== Add-to-Cart blok ========== */
 .product-card__media {
   position: relative;
 }
+
+/* Add-to-Cart container (pill) */
 .product-card__add-cart {
   position: absolute;
+  isolation: isolate; /* eigen stacking context voor z-index */
   left: 50%;
-  bottom: -18px; /* pas aan naar wens */
+  bottom: -18px;
   transform: translateX(-50%);
-  height: 40px; /* vaste hoogte van de balk */
-  border-radius: 9999px; /* pill-vorm */
+  width: 180px;
+  height: 40px;
+  border-radius: 9999px;
   display: grid;
   place-items: center;
-  overflow: hidden; /* alles netjes binnen de rand */
-  z-index: 3;
-}
-.add-btn {
-  background-color: var(--color-rose50);
-  padding: 0.5rem;
-  width: 150px;
-  height: auto;
-  border-radius: 50px;
-  border: 1px solid var(--color-red);
-}
-.add-btn > img {
-  width: 1rem;
-  height: auto;
+  overflow: hidden;
 }
 
-/* Quanty control */
-.qty-controls {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: 20px;
-  transform: translate(-50%, 50%);
-  background: transparent;
-  display: flex;
-  gap: 1.8rem;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 1;
-}
-.qty-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-red);
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 2px solid var(--color-rose50);
-  cursor: pointer;
-}
-
-.qty-value {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-
-  color: var(--color-rose50);
-  font-size: 1em;
-}
-
-/* Btn add-cart config for visible and hidden */
-/* hidden qty-controls */
-
-/* Hover with mouse */
-/* De rode laag die het hele kader bedekt */
+/* Rode overlay – standaard uit, onder de content */
 .product-card__add-cart::before {
   content: "";
   position: absolute;
-  inset: 0; /* full cover */
+  inset: 0;
+  border: 1px solid var(--color-rose50);
   background: var(--color-red);
   border-radius: inherit;
-  opacity: 0; /* start onzichtbaar */
-
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  pointer-events: none; /* blokkeert geen clicks */
+  opacity: 0; /* standaard onzichtbaar */
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 0; /* onder content */
 }
 
-/* Bij hover (of toetsenbord focus op kind) wordt het kader volledig rood */
+/* Overlay AAN bij hover/focus of wanneer geselecteerd */
 .product-card__add-cart:hover::before,
-.product-card__add-cart:focus-within::before {
+.product-card__add-cart:focus-within::before,
+.product-card.is-selected .product-card__add-cart::before {
   opacity: 1;
 }
 
+/* Content (button + qty-controls) moet boven de overlay liggen */
+.product-card__add-cart > .add-btn,
+.product-card__add-cart > .qty-controls {
+  position: absolute; /* <<< absoluut gecentreerd in de pill */
+  inset: 0; /* vult de hele pill */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* boven overlay */
+}
+
+/* Add-to-Cart knop – wit in rust */
+.product-card__add-cart .add-btn {
+  background: #fff;
+  border: 1px solid var(--color-red);
+  border-radius: inherit;
+  gap: 0.5rem;
+  color: var(--color-rose900);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card__add-cart .add-btn > img {
+  width: 1rem;
+  height: 1rem;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+/* Wanneer overlay zichtbaar is: knop transparant en tekst/icon wit */
+.product-card__add-cart:hover .add-btn,
+.product-card__add-cart:focus-within .add-btn,
+.product-card.is-selected .add-btn {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.product-card__add-cart:hover .add-btn img,
+.product-card__add-cart:focus-within .add-btn img,
+.product-card.is-selected .add-btn img {
+  filter: brightness(0) invert(1); /* icon “wit maken” */
+  opacity: 1;
+}
+
+/* ========== Qty controls ========== */
+
+.qty-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.7rem;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Knoppen en waarde (maten passend in pill) */
+.qty-btn {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: var(--color-red);
+  cursor: pointer;
+}
+.qty-btn img {
+  width: 14px;
+  height: 14px;
+}
+
+.qty-value {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+/* Zichtbaar en klikbaar bij hover/focus en wanneer geselecteerd */
 .product-card__add-cart:hover .qty-controls,
-.product-card__add-cart:focus-within .qty-controls {
+.product-card__add-cart:focus-within .qty-controls,
+.product-card.is-selected .qty-controls {
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* Cart section */
+/* ========== Cart sidebar ========== */
 .cart {
   position: sticky;
   top: 1rem;
   align-self: start;
   background-color: var(--color-rose50);
   border-radius: 10px;
-
   width: 300px;
   height: 250px;
 }

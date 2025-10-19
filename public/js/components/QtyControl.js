@@ -38,6 +38,14 @@ export function initQtyControl() {
     // 3g. Schrijf nieuwe waarde terug naar UI
     output.textContent = value;
 
+    // 3h. add button rood vlak kleur
+
+    const card = clickedBtn.closest(".product-card");
+    if (card) {
+      if (value > 0) card.classList.add("is-selected");
+      else card.classList.remove("is-selected");
+    }
+
     // 3h. Voor test
     console.log("Nieuwe waarde:", value);
   });
