@@ -1,0 +1,41 @@
+/* ========= Mobile (tot 375px) ========= */
+@media (max-width: 375px) {
+  .shop {
+    grid-template-areas:
+      "title"
+      "products"
+      "cart";
+
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .shop__products {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========= Big Mobile & Tablet (376px – 767px) ========= */
+@media (min-width: 375px) and (max-width: 767px) {
+  .shop {
+    grid-template-areas:
+      "title"
+      "products"
+      "cart";
+
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .shop__products {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========= Tablet (768px - 1024px) ========= */
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* ========= Desktop (vanaf 1025px) ========= */
+@media (min-width: 1025px) {
+}
