@@ -15,8 +15,8 @@
   }
 }
 
-/* ========= Big Mobile & Tablet (376px – 767px) ========= */
-@media (min-width: 375px) and (max-width: 767px) {
+/* ========= Mobile vanaf (376px) ========= */
+@media (min-width: 375px) {
   .shop {
     grid-template-areas:
       "title"
@@ -24,18 +24,45 @@
       "cart";
 
     grid-template-columns: 1fr;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   .shop__products {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .cart {
+    display: flex;
+
+    width: 100%;
+    height: 50px;
   }
 }
 
-/* ========= Tablet (768px - 1024px) ========= */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* ========= Tablet (768px) ========= */
+@media (min-width: 768px) {
+  .shop__products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-/* ========= Desktop (vanaf 1025px) ========= */
-@media (min-width: 1025px) {
+/* ========= Desktop (vanaf 1366px) ========= */
+@media (min-width: 1366px) {
+  .shop {
+    display: grid;
+    grid-template-areas:
+      "title cart"
+      "products cart";
+    grid-template-columns: 1fr 500px;
+    gap: 2rem;
+    padding: 3rem;
+  }
+
+  .shop__products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    justify-items: stretch;
+  }
 }

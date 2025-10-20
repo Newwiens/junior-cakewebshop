@@ -65,7 +65,7 @@ body {
 
 .shop__products {
   display: grid;
-  grid-template-columns: repeat(3, 280px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -202,11 +202,11 @@ body {
 
 /* ========== Cart sidebar ========== */
 .cart {
-  position: sticky;
   top: 1rem;
   align-self: start;
   background-color: var(--color-rose50);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 300px;
   height: 250px;
+  border: 1px solid var(--color-red);
 }
