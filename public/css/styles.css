@@ -24,16 +24,35 @@ body {
   gap: 5rem;
 }
 
-.social-panel__img {
-  width: 1rem;
-  height: auto;
-}
-
 .socials-panel,
 .order-panel {
   display: flex;
   justify-content: stretch;
   gap: 0.8rem;
+}
+
+.social-panel__img {
+  width: 1rem;
+  height: auto;
+}
+
+.order-panel {
+  position: relative;
+
+  height: 100%;
+}
+
+.order-panel__count {
+  position: absolute;
+  top: 10px;
+  color: var(--color-rose50);
+  left: 5px;
+  font-weight: 500;
+}
+
+i.fa-solid {
+  font-size: 1.8em;
+  color: var(--color-red);
 }
 
 /* ========== Template product cards ========== */
