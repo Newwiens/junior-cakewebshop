@@ -1,5 +1,12 @@
 /* ========= Mobile (tot 375px) ========= */
 @media (max-width: 375px) {
+  /* ==== Header ==== */
+  .header__panel {
+    justify-content: space-around;
+    padding: 0.5rem 5rem;
+    gap: 2rem;
+  }
+
   .shop {
     grid-template-areas:
       "title"
@@ -17,6 +24,13 @@
 
 /* ========= Mobile vanaf (376px) ========= */
 @media (min-width: 375px) {
+  /* ==== Header ==== */
+  .header__panel {
+    justify-content: space-around;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
   .shop {
     grid-template-areas:
       "title"

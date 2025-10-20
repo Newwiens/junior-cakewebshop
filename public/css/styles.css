@@ -19,20 +19,21 @@ body {
 .header__panel {
   display: flex;
   justify-content: flex-end;
-  padding: 0.5rem 2rem 0.5rem 0rem;
+  padding: 0.5rem 2rem;
 
   gap: 5rem;
 }
 
 .social-panel__img {
-  width: 1.5rem;
+  width: 1rem;
   height: auto;
 }
 
 .socials-panel,
 .order-panel {
   display: flex;
-  gap: 1rem;
+  justify-content: stretch;
+  gap: 0.8rem;
 }
 
 /* ========== Template product cards ========== */

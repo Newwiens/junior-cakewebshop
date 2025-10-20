@@ -19,3 +19,7 @@
 body {
   font-family: "Red Hat Text", sans-serif; /* Weights: 400, 600, 700 */
 }
+
+h2 {
+  font-size: 1em;
+}
