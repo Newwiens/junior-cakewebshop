@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Place your kit's code here -->
+    <script
+      src="https://kit.fontawesome.com/b28dd11a93.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -75,11 +81,51 @@
       </div>
     </template>
 
+    <!-- Header -->
+    <header class="header">
+      <section class="header__panel">
+        <div class="socials-panel">
+          <a
+            class="social-panel__link"
+            href="https://github.com/Newwiens"
+            aria-label="Github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./assets/icons/github-icon.svg"
+              class="social-panel__img"
+              alt="Github"
+            />
+          </a>
+          <a
+            class="social-panel__link"
+            href="https://www.linkedin.com/in/htnguyen013"
+            aria-label="Linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./assets/icons/linkedin-icon.svg"
+              class="social-panel__img"
+              alt="Linkedin"
+            />
+          </a>
+        </div>
+        <div class="order-panel">
+          <div class="order-panel__total">
+            <i class="fa-solid fa-euro-sign"></i>
+            <span class="order-panel__amount">45,90</span>
+          </div>
+          <div class="order-panel__cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="order-panel__count">3</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
     <!-- Layout webshop -->
-    <!-- <nav class="shop__cart cart">
-      <p>taart</p>
-      <p>totaal</p>
-    </nav> -->
     <main class="shop">
       <h1 class="shop__title">Desserts</h1>
       <section id="products" class="shop__products">0</section>
