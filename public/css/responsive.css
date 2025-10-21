@@ -3,6 +3,7 @@
   /* ==== Header ==== */
   .header__panel {
     justify-content: space-between;
+
     padding: 1rem 1.5rem;
     gap: 1rem;
   }
