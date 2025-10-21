@@ -7,6 +7,10 @@
     gap: 1rem;
   }
 
+  .header__panel h2 {
+    font-size: 0.9em;
+  }
+
   .shop {
     grid-template-areas:
       "title"
@@ -29,6 +33,10 @@
     justify-content: space-between;
     padding: 1rem 1.5rem;
     gap: 1rem;
+  }
+
+  .header__panel h2 {
+    font-size: clamp(1em, calc(1em + (100vw - 375px) * 0.0027027), 1.5em);
   }
 
   .shop {
@@ -60,9 +68,9 @@
     padding: 1rem 2.5rem;
   }
 
-  .header__panel > h2 {
+  /* .header__panel > h2 {
     font-size: 1.5em;
-  }
+  } */
 
   .shop {
     padding: 1rem 2.5rem;
