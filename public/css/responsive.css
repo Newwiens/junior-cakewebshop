@@ -2,9 +2,9 @@
 @media (max-width: 375px) {
   /* ==== Header ==== */
   .header__panel {
-    justify-content: space-around;
-    padding: 0.5rem 5rem;
-    gap: 2rem;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
   }
 
   .shop {
@@ -14,7 +14,7 @@
       "cart";
 
     grid-template-columns: 1fr;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
   }
 
   .shop__products {
@@ -26,9 +26,9 @@
 @media (min-width: 375px) {
   /* ==== Header ==== */
   .header__panel {
-    justify-content: space-around;
-    padding: 0.5rem;
-    gap: 2rem;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
   }
 
   .shop {
@@ -38,7 +38,7 @@
       "cart";
 
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
   }
 
   .shop__products {
@@ -55,14 +55,31 @@
 }
 
 /* ========= Tablet (768px) ========= */
-@media (min-width: 768px) {
+@media (min-width: 560px) {
+  .header__panel {
+    padding: 1rem 2.5rem;
+  }
+
+  .header__panel > h2 {
+    font-size: 1.5em;
+  }
+
+  .shop {
+    padding: 1rem 2.5rem;
+  }
+
   .shop__products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* padding: 1rem 1.5rem; */
   }
 }
 
 /* ========= Desktop (vanaf 1366px) ========= */
 @media (min-width: 1366px) {
+  .header__panel {
+    padding: 1rem 3rem;
+  }
+
   .shop {
     display: grid;
     grid-template-areas:

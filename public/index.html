@@ -29,6 +29,7 @@
     <title>Cake Webshop</title>
   </head>
   <body>
+    <!-- Template Product Card -->
     <template id="product-template">
       <div class="product-card">
         <div class="product-card__media">
@@ -84,40 +85,13 @@
     <!-- Header -->
     <header class="header">
       <section class="header__panel">
-        <div class="socials-panel">
-          <h2>Newwiens | Cake Shop</h2>
-          <a
-            class="social-panel__link"
-            href="https://github.com/Newwiens?tab=repositories"
-            aria-label="Github"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="./assets/icons/github-icon.svg"
-              class="social-panel__img"
-              alt="Github"
-            />
-          </a>
-          <a
-            class="social-panel__link"
-            href="https://www.linkedin.com/in/htnguyen013"
-            aria-label="Linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="./assets/icons/linkedin-icon.svg"
-              class="social-panel__img"
-              alt="Linkedin"
-            />
-          </a>
-        </div>
+        <h2>Newwiens | Cake Shop</h2>
+
         <div class="order-panel">
-          <!-- <div class="order-panel__total">
-            <i class="fa-solid fa-euro-sign total-price"> 45,90</i>
+          <div class="order-panel__total">
+            <i class="fa-solid fa-euro-sign"> 45,90</i>
             <span class="order-panel__amount"></span>
-          </div> -->
+          </div>
           <div class="order-panel__cart">
             <i class="fa-solid fa-bag-shopping"></i>
             <span class="order-panel__count">23</span>
@@ -135,5 +109,49 @@
         <p>totaal</p>
       </aside>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="footer__credits">
+        <p>Made by Newwiens 2025</p>
+        <p>
+          <a
+            href="https://www.frontendmentor.io/"
+            aria-label="Frontend Mentor"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Challenge by Frontend Mentor</a
+          >
+        </p>
+      </div>
+      <div class="footer__socials-panel">
+        <a
+          class="social-panel__link"
+          href="https://github.com/Newwiens?tab=repositories"
+          aria-label="Github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="./assets/icons/github-icon.svg"
+            class="social-panel__img"
+            alt="Github"
+          />
+        </a>
+        <a
+          class="social-panel__link"
+          href="https://www.linkedin.com/in/htnguyen013"
+          aria-label="Linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="./assets/icons/linkedin-icon.svg"
+            class="social-panel__img"
+            alt="Linkedin"
+          />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>
