@@ -104,7 +104,7 @@ export function initCartDetails() {
             aria-label="Remove ${item.key} from cart"
             data-key="${item.key}"
           >
-            ✕
+           x
           </button>
         </div>
       `;
