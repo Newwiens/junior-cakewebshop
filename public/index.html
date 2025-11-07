@@ -102,10 +102,45 @@
     <!-- Layout webshop -->
     <main class="shop">
       <h1 class="shop__title">Desserts</h1>
-      <section id="products" class="shop__products">0</section>
-      <aside class="shop__cart cart">
-        <p>taart</p>
-        <p>totaal</p>
+
+      <!-- Product card -->
+      <section id="products" class="shop__products"></section>
+
+      <!-- De Shopping list -->
+      <aside class="shop__cart">
+        <h2 class="cart__title">
+          Your Cart <span class="cart__count">0</span>
+        </h2>
+
+        <!-- Order details -->
+        <div class="cart__body">
+          <!-- leeg bericht als er nog niets in de mand zit -->
+          <div class="cart__empty">
+            <img
+              src="./assets/icons/illustration-empty-cart.svg"
+              alt=""
+              class="cart__empty-img"
+              aria-hidden="true"
+            />
+
+            <p class="cart__empty-text">Your added items will appear here</p>
+          </div>
+
+          <!-- hier komt later de lijst met items dynamisch in -->
+          <ul class="cart__list"></ul>
+        </div>
+
+        <!-- Totaal bedrag -->
+        <div class="cart__summary">
+          <div class="cart__total-price">
+            <p>Order Total</p>
+            <p class="cart__total-amount">0,00</p>
+          </div>
+
+          <p class="cart__note">This is a carbon-neutral delivery</p>
+
+          <button class="cart__confirm-bnt">Confirm Order</button>
+        </div>
       </aside>
     </main>
 

@@ -269,7 +269,7 @@ body {
 }
 
 /* ========== Cart sidebar ========== */
-.cart {
+.shop__cart {
   top: 1rem;
   align-self: start;
   background-color: var(--color-rose50);

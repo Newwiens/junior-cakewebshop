@@ -16,6 +16,7 @@ export function renderProductCard(products) {
     const cardData = clone.querySelector(".product-card");
     cardData.dataset.key = d.name;
     cardData.dataset.price = String(d.price);
+    cardData.dataset.image = d.image.thumbnail ?? d.image.desktop;
 
     // De velden in vullen
     const img = clone.querySelector(".product-card__img");

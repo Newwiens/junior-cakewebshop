@@ -45,8 +45,9 @@ export function initQtyControl() {
     // 3i. hier halen we ruwe data op van RenderProductCard
     const key = card.dataset.key;
     const price = Number(card.dataset.price);
+    const image = card.dataset.image;
 
-    if (!key || Number.isNaN(price)) {
+    if (!key || Number.isNaN(price) || !image) {
       console.warn("qtyControl: ontbrekende data-key of data-price op card");
       return;
     }
@@ -55,7 +56,7 @@ export function initQtyControl() {
     card.dispatchEvent(
       new CustomEvent("qtychange", {
         bubbles: true,
-        detail: { key, price, qty: value },
+        detail: { key, price, qty: value, image },
       })
     );
     // 3h. Voor test
