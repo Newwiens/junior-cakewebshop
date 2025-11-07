@@ -12,6 +12,11 @@ export function renderProductCard(products) {
     //clone het template
     const clone = template.content.cloneNode(true);
 
+    //DATA ophalen van Product Card
+    const cardData = clone.querySelector(".product-card");
+    cardData.dataset.key = d.name;
+    cardData.dataset.price = String(d.price);
+
     // De velden in vullen
     const img = clone.querySelector(".product-card__img");
     img.src = d.image.desktop;

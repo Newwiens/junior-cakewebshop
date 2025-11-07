@@ -15,11 +15,9 @@ export function initQtyControl() {
 
     // 3b. Zoek naar ouder div waar de qty-btn in zitten
     const controls = clickedBtn.closest(".qty-controls");
-    if (!controls) return;
-
     // 3c. Zoek het element waar de waarde wordt weergegeven
     const output = controls.querySelector(".qty-value");
-    if (!output) return;
+    if (!controls || !output) return;
 
     // 3d. Lees huidige waarde e nzet om naar getal
     // parseInt = string omzet naar getal
@@ -38,14 +36,28 @@ export function initQtyControl() {
     // 3g. Schrijf nieuwe waarde terug naar UI
     output.textContent = value;
 
-    // 3h. add button rood vlak kleur
-
+    // 3h. visuele state op de kaart
     const card = clickedBtn.closest(".product-card");
-    if (card) {
-      if (value > 0) card.classList.add("is-selected");
-      else card.classList.remove("is-selected");
+    if (!card) return;
+    card.classList.toggle("is-selected", value > 0);
+    //"guard clause"-structuur -: met toggle wordt geforceerd als waarde true = add als waarde false = remove
+
+    // 3i. hier halen we ruwe data op van RenderProductCard
+    const key = card.dataset.key;
+    const price = Number(card.dataset.price);
+
+    if (!key || Number.isNaN(price)) {
+      console.warn("qtyControl: ontbrekende data-key of data-price op card");
+      return;
     }
 
+    // 3j. De kern: vuur één CustomEvent af met alle info
+    card.dispatchEvent(
+      new CustomEvent("qtychange", {
+        bubbles: true,
+        detail: { key, price, qty: value },
+      })
+    );
     // 3h. Voor test
     console.log("Nieuwe waarde:", value);
   });
