@@ -351,13 +351,12 @@ body {
   display: flex;
   border: 2px solid var(--color-rose400);
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
   align-items: center;
   justify-content: center;
   color: var(--color-rose400);
   cursor: pointer;
-  text-align: right;
 }
 
 .cart__item-remove:hover {

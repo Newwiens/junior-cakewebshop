@@ -65,7 +65,7 @@
   }
 }
 
-/* ========= Tablet (768px) ========= */
+/* ========= Tablet (560px) ========= */
 @media (min-width: 560px) {
   .header__panel {
     padding: 1rem 2.5rem;
@@ -86,6 +86,10 @@
 
   .shop__cart {
     width: 48%;
+  }
+
+  .cart__item-main {
+    gap: 1rem;
   }
 }
 
