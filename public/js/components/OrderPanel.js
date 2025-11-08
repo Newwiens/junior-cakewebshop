@@ -15,11 +15,35 @@ export function initOrderPanel() {
   const productsRoot = document.querySelector("#products");
   const countEl = document.querySelector(".order-panel__count");
   const amountEl = document.querySelector(".order-panel__amount");
+  const cartPanelEl = document.querySelector(".order-panel"); // klikbare header-cart
+  const cartAsideEl = document.querySelector(".shop__cart");
 
   // Guard: als één van deze niet bestaat, stoppen alles
   if (!productsRoot || !countEl || !amountEl) {
     console.warn("[orderPanel] vereiste elementen niet gevonden");
     return;
+  }
+
+  if (!cartPanelEl || !cartAsideEl) {
+    console.warn("[orderPanel] .order-panel of .shop__cart niet gevonden");
+  } else {
+    cartPanelEl.style.cursor = "pointer";
+
+    cartPanelEl.addEventListener("click", () => {
+      // positie van de cart t.o.v. de hele pagina
+      const rect = cartAsideEl.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+
+      // beetje marge boven de cart, zodat de titel ook altijd zichtbaar is
+      const offset = 80; // pixels, kun je tweaken
+
+      const target = Math.max(absoluteTop - offset, 0);
+
+      window.scrollTo({
+        top: target,
+        behavior: "smooth",
+      });
+    });
   }
 
   /*
