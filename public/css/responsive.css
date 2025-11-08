@@ -25,6 +25,11 @@
   .shop__products {
     grid-template-columns: 1fr;
   }
+
+  /* --------- Cart details */
+  .shop__cart {
+    width: 100%;
+  }
 }
 
 /* ========= Mobile vanaf (376px) ========= */
@@ -55,11 +60,8 @@
     justify-items: center;
   }
 
-  .cart {
-    display: flex;
-
+  .shop__cart {
     width: 100%;
-    height: 50px;
   }
 }
 
@@ -80,6 +82,10 @@
   .shop__products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     /* padding: 1rem 1.5rem; */
+  }
+
+  .shop__cart {
+    width: 48%;
   }
 }
 
@@ -104,5 +110,9 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     justify-items: stretch;
+  }
+
+  .shop__cart {
+    width: 25rem;
   }
 }

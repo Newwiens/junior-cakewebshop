@@ -51,7 +51,7 @@ export function initCartDetails() {
 
     // 2c. Lege lijst
     if (items.length === 0) {
-      emptyE1.style.display = "block";
+      emptyE1.style.display = "flex";
       listE1.innerHTML = "";
       totaalAmountE1.textContent = euro.format(0);
       summaryE1.style.display = "none";
@@ -60,7 +60,7 @@ export function initCartDetails() {
 
     // 2d. Lijst items tonen: leeg bericht verbergen, lijst vullen
     emptyE1.style.display = "none";
-    summaryE1.style.display = "block";
+    summaryE1.style.display = "flex";
     listE1.innerHTML = "";
 
     //3a. Lijst met items opbouwen
@@ -90,7 +90,8 @@ export function initCartDetails() {
             <p class="cart__item-name">${item.key}</p>
             <p class="cart__item-meta">
               <span class="cart__item-qty">${item.qty}x</span>
-              <span class="cart__item-price">@ ${euro.format(item.price)}</span>
+              <span class="cart__item-add">@</span>
+              <span class="cart__item-price">${euro.format(item.price)}</span>
               <span class="cart__item-line">${euro.format(
                 item.lineTotal
               )}</span>

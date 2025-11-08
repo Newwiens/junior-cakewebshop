@@ -109,7 +109,7 @@
       <!-- De Shopping list -->
       <aside class="shop__cart">
         <h2 class="cart__title">
-          Your Cart <span class="cart__count">0</span>
+          Your Cart (<span class="cart__count">0</span>)
         </h2>
 
         <!-- Order details -->
@@ -137,9 +137,17 @@
             <p class="cart__total-amount">0,00</p>
           </div>
 
-          <p class="cart__note">This is a carbon-neutral delivery</p>
+          <p class="cart__note">
+            <img
+              class="cart__note-icon"
+              src="./assets/icons/icon-carbon-neutral.svg"
+              alt=""
+            />
+            This is a
+            <span class="cart__note-carbon">carbon-neutral</span> delivery
+          </p>
 
-          <button class="cart__confirm-bnt">Confirm Order</button>
+          <button class="cart__confirm-btn">Confirm Order</button>
         </div>
       </aside>
     </main>
