@@ -55,9 +55,9 @@ body {
 
 .order-panel__count {
   position: absolute;
-  top: 10px;
+  top: 15px;
   color: var(--color-rose50);
-  right: 3px;
+  right: 2px;
   font-weight: 500;
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 .fa-bag-shopping {
-  font-size: 1.8em;
+  font-size: 2.2em;
   color: var(--color-red);
 }
 
